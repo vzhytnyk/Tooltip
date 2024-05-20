@@ -1,6 +1,6 @@
-import { ITooltip } from './types';
-import { getDirection } from '@/utils/getDirection';
 
+import { getDirection } from "@/utils/getDirection";
+import { ITooltip } from "./types";
 
 const Tooltip = ({
   text,
@@ -9,7 +9,7 @@ const Tooltip = ({
 }: ITooltip) => {
 
   const { arrowIcon, mainStyle, rotateArrow } = getDirection(arrowDirection);
-  
+
   return (
     <div>
       <div className='relative'>
@@ -25,4 +25,4 @@ const Tooltip = ({
   );
 };
 
-export default Tooltip;
+export default Tooltip

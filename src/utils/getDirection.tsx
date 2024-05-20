@@ -4,10 +4,10 @@ import ArrowSvg from "@/icons/ArrowSvg";
 
 type ArrowType = 'right' | 'left' | 'down';
 
-export const getDirection = (arrowDirection:ArrowType) => {
+export const getDirection = (arrowDirection: ArrowType,) => {
   let arrowIcon;
   let mainStyle;
-  let rotateArrow;
+  let rotateArrow = '';
 
   switch (arrowDirection) {
     case 'right':
