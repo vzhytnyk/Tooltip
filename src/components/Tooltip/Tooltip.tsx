@@ -1,8 +1,6 @@
 import ArrowDownSvg from '@/icons/ArrowDownSvg';
 import ArrowLeftSvg from '@/icons/ArrowLeftSvg';
 import ArrowSvg from '@/icons/ArrowSvg';
-// import { getDirection } from '@/utils/getDirection';
-import { ReactNode } from 'react';
 import { ITooltip } from './types';
 
 
@@ -19,32 +17,43 @@ const Tooltip = ({
   topD = '-top-6',
   rotateD = 'rotate-[12deg]',
   rightD = '-right-30',
+  tooltipPositionRbottom = '-bottom-28',
+  tooltipPositionRleft = '-left-20',
+  tooltipPositionLbottom = '-bottom-[70px]',
+  tooltipPositionLright = '-right-[118px]',
+  tooltipPositionDtop = '-top-[40px]',
+  tooltipPositionDleft = '-left-12',
 }: ITooltip) => {
 
-  // const { arrowIcon: ArrowIcon, arrowClass } = getDirection(arrowDirection);
+  
 
-  let arrowIcon;
-  let arrowClass;
+  const getDirection = () => {
+    let arrowIcon;
+    let arrowClass;
 
-  switch (arrowDirection) {
-    case 'right':
-      arrowIcon = <ArrowSvg color='#b8b8b8' />;
-      arrowClass = `${rotateR} ${topR} ${rightR}`;
-      break;
-    case 'left':
-      arrowIcon = <ArrowLeftSvg color='#b8b8b8' />;
-      arrowClass = `${topL} ${rotateL} ${rightL}`;
-      break;
-    case 'down':
-      arrowIcon = <ArrowDownSvg color='#b8b8b8' />;
-      arrowClass = `${topD} ${rightD} ${rotateD}`;
-      break;
-    default:
-      arrowIcon = <ArrowSvg color='#b8b8b8' />;
-      arrowClass = `${rotateR} ${topR} ${rightR}`;
+    switch (arrowDirection) {
+      case 'right':
+        arrowIcon = <ArrowSvg color='#b8b8b8' />;
+        arrowClass = `${rotateR} ${topR} ${rightR}`;
+        break;
+      case 'left':
+        arrowIcon = <ArrowLeftSvg color='#b8b8b8' />;
+        arrowClass = `${topL} ${rotateL} ${rightL}`;
+        break;
+      case 'down':
+        arrowIcon = <ArrowDownSvg color='#b8b8b8' />;
+        arrowClass = `${topD} ${rightD} ${rotateD}`;
+        break;
+      default:
+        arrowIcon = <ArrowSvg color='#b8b8b8' />;
+        arrowClass = `${rotateR} ${topR} ${rightR}`;
+    }
+    return { arrowIcon, arrowClass };
   }
 
-  const tooltipClass = arrowDirection === 'right' ? '-bottom-28 -left-20 ' : (arrowDirection === 'down' ? '-top-[40px] -left-12' : '-bottom-[70px] -right-[118px]');
+  const {arrowIcon, arrowClass} = getDirection();
+    
+  const tooltipClass = arrowDirection === 'right' ? `${tooltipPositionRbottom} ${tooltipPositionRleft} ` : (arrowDirection === 'down' ? `${tooltipPositionDtop} ${tooltipPositionDleft}` : `${tooltipPositionLbottom} ${tooltipPositionLright}`);
 
   return (
     <div className="tooltip-container relative inline-block">

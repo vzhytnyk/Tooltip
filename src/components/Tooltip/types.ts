@@ -13,6 +13,12 @@ export interface ITooltip {
   rotateL?: string
   positionD?: string;
   topD?: string;
-  rightD?: string
-  rotateD?: string
+  rightD?: string;
+  rotateD?: string;
+  tooltipPositionRbottom?:string;
+  tooltipPositionRleft?:string;
+  tooltipPositionLbottom?:string;
+  tooltipPositionLright?:string;
+  tooltipPositionDtop?:string;
+  tooltipPositionDleft?:string;
 }
