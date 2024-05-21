@@ -1,28 +1,37 @@
-
-import { getDirection } from "@/utils/getDirection";
 import { ITooltip } from "./types";
-
+import classNames from "classnames";
+import { getArrow } from '@/utils/arrowsSetings';
 
 const Tooltip = ({
   text,
   children,
   arrowDirection = 'right',
-  rotateRightArrow = '0deg',
-  rotateLeftArrow = '30deg',
-  rotateDownArrow = '30deg',
+  tooltipPosition,
+  arrorRotate = 'rotate-[0deg]',
+  maxContentWidth = '',
 }: ITooltip) => {
 
+  const ArrowIcon = getArrow(arrowDirection);
 
-  const { arrowIcon, mainStyle, rotateArrow } = getDirection(arrowDirection, rotateRightArrow, rotateLeftArrow, rotateDownArrow);
-  console.log(rotateArrow)
+  const paragraphClasses = classNames(
+      'text-[#b8b8b8]',{
+        [maxContentWidth]:!!maxContentWidth?.length,
+        'whitespace-nowrap':!maxContentWidth?.length,
+        'self-start':arrowDirection === 'down',
+        'self-end':arrowDirection !== 'down',
+        'order-0':arrowDirection !== 'left',
+        'order-1':arrowDirection === 'left',
+      }
+    );
+
   return (
     <div>
       <div className='relative'>
         {children}
-        <div className='absolute'>
-          <div className={`${mainStyle} `}>
-            <p className={`text-[#b8b8b8] ${arrowDirection === 'down' ? 'self-start' : 'self-end'}  ${text.trim().length > 15 ? 'max-w-30 ' : 'whitespace-nowrap'} ${arrowDirection === 'left' ? 'order-1' : 'order-0'}`}>{text}</p>
-            <div className={`rotate-[${rotateArrow}]`}>{arrowIcon}</div>
+        <div className={classNames('absolute',tooltipPosition )}>
+          <div className="flex">
+          <p className={paragraphClasses}>{text}</p>
+            <div className={arrorRotate}>{ArrowIcon}</div>
           </div>
         </div>
       </div>
