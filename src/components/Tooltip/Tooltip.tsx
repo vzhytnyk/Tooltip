@@ -1,6 +1,6 @@
 import { ITooltip } from "./types";
 import classNames from "classnames";
-import { getArrow } from '@/utils/arrowsSetings';
+import { getArrow } from '@/utils/getArrow';
 
 const Tooltip = ({
   text,
@@ -10,7 +10,6 @@ const Tooltip = ({
   arrowRotate = 'rotate-[0deg]',
   maxContentWidth = '',
 }: ITooltip) => {
-
   const ArrowIcon = getArrow(arrowDirection);
 
   const paragraphClasses = classNames(
