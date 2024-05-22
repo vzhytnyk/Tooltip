@@ -12,7 +12,5 @@ const ArrowLeftSvg = (props: SVGProps<SVGSVGElement>) => (
       </clipPath>
     </defs>
   </svg>
-
-
 );
 export default ArrowLeftSvg;
