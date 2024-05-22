@@ -7,7 +7,7 @@ const Tooltip = ({
   children,
   arrowDirection = 'right',
   tooltipPosition,
-  arrorRotate = 'rotate-[0deg]',
+  arrowRotate = 'rotate-[0deg]',
   maxContentWidth = '',
 }: ITooltip) => {
 
@@ -31,7 +31,7 @@ const Tooltip = ({
         <div className={classNames('absolute',tooltipPosition )}>
           <div className="flex">
           <p className={paragraphClasses}>{text}</p>
-            <div className={arrorRotate}>{ArrowIcon}</div>
+            <div className={arrowRotate}>{ArrowIcon}</div>
           </div>
         </div>
       </div>

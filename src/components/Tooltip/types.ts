@@ -5,6 +5,6 @@ export interface ITooltip {
   children: ReactNode;
   arrowDirection?: 'right' | 'left' | 'down';
   maxContentWidth?: string;
-  arrorRotate?: string
+  arrowRotate?: string
   tooltipPosition: string
 }
